@@ -1,3 +1,1 @@
-"C:\0code\CLion 2018.3\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\AlgoSort.dir/objects.a
-D:\0_code\MingW\mingw32\bin\ar.exe cr CMakeFiles\AlgoSort.dir/objects.a @CMakeFiles\AlgoSort.dir\objects1.rsp
-D:\0_code\MingW\mingw32\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\AlgoSort.dir/objects.a -Wl,--no-whole-archive  -o AlgoSort.exe -Wl,--out-implib,libAlgoSort.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\AlgoSort.dir\linklibs.rsp
+/usr/bin/c++  -g   CMakeFiles/AlgoSort.dir/main.cpp.o CMakeFiles/AlgoSort.dir/Sort.cpp.o  -o AlgoSort 

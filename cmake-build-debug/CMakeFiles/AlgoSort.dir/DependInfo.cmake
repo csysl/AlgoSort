@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/92582/Desktop/AlgoSort/main.cpp" "C:/Users/92582/Desktop/AlgoSort/cmake-build-debug/CMakeFiles/AlgoSort.dir/main.cpp.obj"
+  "/home/sun/code/AlgoSort/Sort.cpp" "/home/sun/code/AlgoSort/cmake-build-debug/CMakeFiles/AlgoSort.dir/Sort.cpp.o"
+  "/home/sun/code/AlgoSort/main.cpp" "/home/sun/code/AlgoSort/cmake-build-debug/CMakeFiles/AlgoSort.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

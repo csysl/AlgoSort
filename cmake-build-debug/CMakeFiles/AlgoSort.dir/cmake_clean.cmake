@@ -1,9 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/AlgoSort.dir/main.cpp.obj"
+  "CMakeFiles/AlgoSort.dir/main.cpp.o"
+  "CMakeFiles/AlgoSort.dir/Sort.cpp.o"
   "AlgoSort.pdb"
-  "AlgoSort.exe"
-  "AlgoSort.exe.manifest"
-  "libAlgoSort.dll.a"
+  "AlgoSort"
 )
 
 # Per-language clean rules from dependency scanning.

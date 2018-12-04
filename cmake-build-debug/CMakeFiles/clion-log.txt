@@ -1,4 +1,4 @@
-"C:\0code\CLion 2018.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\92582\Desktop\AlgoSort
+/opt/jetbrains/clion-2018.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/sun/code/AlgoSort
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/92582/Desktop/AlgoSort/cmake-build-debug
+-- Build files have been written to: /home/sun/code/AlgoSort/cmake-build-debug

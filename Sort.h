@@ -5,15 +5,27 @@
 #ifndef ALGOSORT_SORT_H
 #define ALGOSORT_SORT_H
 
-class SORT{
-public:
-    SORT(){};
+#include <bits/stdc++.h>
 
-private:
+namespace mysort{
+    template <typename T>
+    class SORT{
+    public:
+        SORT(){};
+        inline void BubbleSort(T *rbegin, T *rend){
 
-    ~SORT(){
+        };
+        inline void QuickSort(T *rbegin,T *rend){
 
-    }
-};
+        };
+
+    private:
+
+        ~SORT(){
+
+        }
+    };
+
+}
 
 #endif //ALGOSORT_SORT_H
