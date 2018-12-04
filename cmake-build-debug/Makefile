@@ -123,33 +123,6 @@ AlgoSort/fast:
 	$(MAKE) -f CMakeFiles/AlgoSort.dir/build.make CMakeFiles/AlgoSort.dir/build
 .PHONY : AlgoSort/fast
 
-Sort.o: Sort.cpp.o
-
-.PHONY : Sort.o
-
-# target to build an object file
-Sort.cpp.o:
-	$(MAKE) -f CMakeFiles/AlgoSort.dir/build.make CMakeFiles/AlgoSort.dir/Sort.cpp.o
-.PHONY : Sort.cpp.o
-
-Sort.i: Sort.cpp.i
-
-.PHONY : Sort.i
-
-# target to preprocess a source file
-Sort.cpp.i:
-	$(MAKE) -f CMakeFiles/AlgoSort.dir/build.make CMakeFiles/AlgoSort.dir/Sort.cpp.i
-.PHONY : Sort.cpp.i
-
-Sort.s: Sort.cpp.s
-
-.PHONY : Sort.s
-
-# target to generate assembly for a file
-Sort.cpp.s:
-	$(MAKE) -f CMakeFiles/AlgoSort.dir/build.make CMakeFiles/AlgoSort.dir/Sort.cpp.s
-.PHONY : Sort.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -186,9 +159,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... AlgoSort"
-	@echo "... Sort.o"
-	@echo "... Sort.i"
-	@echo "... Sort.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

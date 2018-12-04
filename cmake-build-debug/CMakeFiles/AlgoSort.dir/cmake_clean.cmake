@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/AlgoSort.dir/main.cpp.o"
-  "CMakeFiles/AlgoSort.dir/Sort.cpp.o"
   "AlgoSort.pdb"
   "AlgoSort"
 )
