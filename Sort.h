@@ -9,51 +9,139 @@
 
 namespace mysort {
     /*
-     * 冒泡排序,tag为false默认升序，为true为降序
+     * TAG:
+     * false:升序;  true:降序
+     */
+    /*
+     * 冒泡排序
      */
     template<typename T>
-    inline void BubbleSort(T *rbegin, T *rend, bool TAG = false) {
-        //unsigned long long n = 0;
+    inline void BubbleSort(T *begin_, T *end_, bool TAG = false) {
         bool transtag;
-        for (auto i = rbegin; i < rend - 1; ++i) {
-            transtag = false;
-            for (auto j = rbegin; j < rend - 1 - (i - rbegin); ++j) {
-                if (!TAG) {
+        if (!TAG) {
+            for (auto i = begin_; i < end_ - 1; ++i) {
+                transtag = false;
+                for (auto j = begin_; j < end_ - 1 - (i - begin_); ++j)
                     if (*j > *(j + 1)) {
                         std::swap(*j, *(j + 1));
                         transtag = true;
-                        //++n;
                     }
-                } else if (TAG) {
+                if (!transtag)
+                    return;
+            }
+        } else if (TAG) {
+            for (auto i = begin_; i < end_ - 1; ++i) {
+                transtag = false;
+                for (auto j = begin_; j < end_ - 1 - (i - begin_); ++j)
                     if (*j < *(j + 1)) {
                         std::swap(*j, *(j + 1));
                         transtag = true;
-                        //++n;
                     }
-                }
+                if (!transtag)
+                    return;
             }
-            if (!transtag) {
-                //std::cout << "The time complexity of bubble_sort is O(" << n << ")\n";
-                return;
-            }
-
         }
-        //std::cout << "Time complexity is O(" << n << ")\n";
         return;
     };
+
     /*
      * 选择排序
      */
-    template <typename T>
-    inline void SelectionSort(T *rbegin, T *rend, bool TAG = false){
-
+    template<typename T>
+    inline void SelectionSort(T *begin_, T *end_, bool TAG = false) {
+        T *tag;
+        if (!TAG) {
+            for (auto i = begin_; i < end_ - 1; ++i) {
+                tag = i;
+                for (auto j = i + 1; j < end_; ++j)
+                    if (*j < *tag)
+                        tag = j;
+                std::swap(*tag, *i);
+            }
+        } else if (TAG) {
+            for (auto i = begin_; i < end_ - 1; ++i) {
+                tag = i;
+                for (auto j = i + 1; j < end_; ++j)
+                    if (*j > *tag)
+                        tag = j;
+                std::swap(*tag, *i);
+            }
+        }
     }
+
+    /*
+     * 插入排序
+     */
+    template<typename T>
+    inline void InsertionSort(T *begin_, T *end_, bool TAG = false) {
+        T *tag;
+        if (!TAG) {
+            for (auto i = begin_ + 1; i < end_; ++i) {
+                tag = i;
+                while (tag > begin_ && *tag < *(tag - 1)) {
+                    std::swap(*tag, *(tag - 1));
+                    --tag;
+                }
+            }
+        } else if (TAG) {
+            for (auto i = begin_ + 1; i < end_; ++i) {
+                tag = i;
+                while (tag > begin_ && *tag > *(tag - 1)) {
+                    std::swap(*tag, *(tag - 1));
+                    --tag;
+                }
+            }
+        }
+    };
+
+    /*
+     * 希尔排序
+     */
+    template<typename T>
+    inline void ShellSort(T *begin_, T *end_, bool TAG = false) {
+        T *tag;
+        if (!TAG) {
+            for (auto t = (end_ - begin_) / 2; t > 0; t /= 2)
+                for (auto i =begin_+t;i<end_;i+=t){
+                    tag = i;
+                    while (tag > begin_ && *tag < *(tag - t)) {
+                        std::swap(*tag, *(tag - t));
+                        --tag;
+                    }
+                }
+        } else if (TAG) {
+            for (auto t = (end_ - begin_) / 2; t > 0; t /= 2)
+                for (auto i =begin_+t;i<end_;i+=t){
+                    tag = i;
+                    while (tag > begin_ && *tag > *(tag - t)) {
+                        std::swap(*tag, *(tag - t));
+                        --tag;
+                    }
+                }
+        }
+    };
+    /*
+     * 归并排序
+     */
+    template<typename T>
+    inline void MergeSort(T *begin_, T *end_, bool TAG = false) {
+        if (!TAG) {
+
+        } else if (TAG) {
+
+        }
+    };
+
     /*
      * 快速排序
      */
     template<typename T>
-    inline void QuickSort(T *rbegin, T *rend, bool TAG = false) {
+    inline void QuickSort(T *begin_, T *end_, bool TAG = false) {
+        if (!TAG) {
 
+        } else if (TAG) {
+
+        }
     };
 
 
