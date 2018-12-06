@@ -11,11 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1364819-0a93-4ab7-a849-eebe536c900f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sort.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sort.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="a1364819-0a93-4ab7-a849-eebe536c900f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sort.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2580">
-              <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+            <state relative-caret-position="780">
+              <caret line="98" column="9" lean-forward="true" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
               <folding>
                 <element signature="e#201#213#0" expanded="true" />
                 <element signature="e#227#239#0" expanded="true" />
@@ -165,12 +161,12 @@
       <workItem from="1543985360652" duration="53000" />
       <workItem from="1543985452502" duration="168000" />
       <workItem from="1543985673853" duration="7583000" />
-      <workItem from="1544060661014" duration="627000" />
+      <workItem from="1544060661014" duration="878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17414000" />
+    <option name="totallyTimeSpent" value="17665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="35" width="1870" height="1045" extended-state="6" />
@@ -188,7 +184,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32842582" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32731378" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3272933" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3291714" />
       <window_info anchor="bottom" id="CMake" order="12" />
@@ -290,8 +286,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Sort.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2580">
-          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        <state relative-caret-position="780">
+          <caret line="98" column="9" lean-forward="true" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
           <folding>
             <element signature="e#201#213#0" expanded="true" />
             <element signature="e#227#239#0" expanded="true" />

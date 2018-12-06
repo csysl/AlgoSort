@@ -4,7 +4,7 @@
 
 int main() {
     using namespace std;
-    using namespace mysort;
+    using namespace MySort;
 
     int v[]{1, 6, 4, 5, 3, 10, 0, 9};
     cout << "Origin array: ";for (auto i:v)cout << i << " ";cout << endl;

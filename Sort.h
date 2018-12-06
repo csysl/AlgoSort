@@ -5,7 +5,7 @@
 #ifndef ALGOSORT_SORT_H
 #define ALGOSORT_SORT_H
 
-namespace mysort {
+namespace MySort {
     /*
      * TAG:
      * false:升序;  true:降序
