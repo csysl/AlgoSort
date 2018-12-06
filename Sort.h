@@ -5,13 +5,18 @@
 #ifndef ALGOSORT_SORT_H
 #define ALGOSORT_SORT_H
 
-#include <bits/stdc++.h>
-
 namespace mysort {
     /*
      * TAG:
      * false:升序;  true:降序
      */
+    template <typename T>
+    inline void swap(T &a, T &b){
+    //inline void swap(T &&a, T &&b){
+        T tmp=a;
+        a=b;
+        b=tmp;
+    }
     /*
      * 冒泡排序
      */
@@ -23,7 +28,7 @@ namespace mysort {
                 transtag = false;
                 for (auto j = begin_; j < end_ - 1 - (i - begin_); ++j)
                     if (*j > *(j + 1)) {
-                        std::swap(*j, *(j + 1));
+                        swap(*j, *(j + 1));
                         transtag = true;
                     }
                 if (!transtag)
@@ -34,7 +39,7 @@ namespace mysort {
                 transtag = false;
                 for (auto j = begin_; j < end_ - 1 - (i - begin_); ++j)
                     if (*j < *(j + 1)) {
-                        std::swap(*j, *(j + 1));
+                        swap(*j, *(j + 1));
                         transtag = true;
                     }
                 if (!transtag)
@@ -56,7 +61,7 @@ namespace mysort {
                 for (auto j = i + 1; j < end_; ++j)
                     if (*j < *tag)
                         tag = j;
-                std::swap(*tag, *i);
+                swap(*tag, *i);
             }
         } else if (TAG) {
             for (auto i = begin_; i < end_ - 1; ++i) {
@@ -64,7 +69,7 @@ namespace mysort {
                 for (auto j = i + 1; j < end_; ++j)
                     if (*j > *tag)
                         tag = j;
-                std::swap(*tag, *i);
+                swap(*tag, *i);
             }
         }
     }
@@ -79,7 +84,7 @@ namespace mysort {
             for (auto i = begin_ + 1; i < end_; ++i) {
                 tag = i;
                 while (tag > begin_ && *tag < *(tag - 1)) {
-                    std::swap(*tag, *(tag - 1));
+                    swap(*tag, *(tag - 1));
                     --tag;
                 }
             }
@@ -87,7 +92,7 @@ namespace mysort {
             for (auto i = begin_ + 1; i < end_; ++i) {
                 tag = i;
                 while (tag > begin_ && *tag > *(tag - 1)) {
-                    std::swap(*tag, *(tag - 1));
+                    swap(*tag, *(tag - 1));
                     --tag;
                 }
             }
@@ -105,7 +110,7 @@ namespace mysort {
                 for (auto i =begin_+t;i<end_;i+=t){
                     tag = i;
                     while (tag > begin_ && *tag < *(tag - t)) {
-                        std::swap(*tag, *(tag - t));
+                        swap(*tag, *(tag - t));
                         --tag;
                     }
                 }
@@ -114,7 +119,7 @@ namespace mysort {
                 for (auto i =begin_+t;i<end_;i+=t){
                     tag = i;
                     while (tag > begin_ && *tag > *(tag - t)) {
-                        std::swap(*tag, *(tag - t));
+                        swap(*tag, *(tag - t));
                         --tag;
                     }
                 }

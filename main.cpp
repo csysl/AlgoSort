@@ -1,5 +1,6 @@
 #include "Sort.h"
 #include "Rand.h"
+#include <iostream>
 
 int main() {
     using namespace std;
