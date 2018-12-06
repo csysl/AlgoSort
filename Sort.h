@@ -5,18 +5,21 @@
 #ifndef ALGOSORT_SORT_H
 #define ALGOSORT_SORT_H
 
+#include <bits/stdc++.h>
+
 namespace MySort {
+
     /*
      * TAG:
      * false:升序;  true:降序
      */
-    template <typename T>
-    inline void swap(T &a, T &b){
-    //inline void swap(T &&a, T &&b){
-        T tmp=a;
-        a=b;
-        b=tmp;
+    template<typename T>
+    inline void swap(T &a, T &b) {
+        T tmp(std::move(a));
+        a = std::move(b);
+        b = std::move(tmp);
     }
+
     /*
      * 冒泡排序
      */
@@ -46,7 +49,6 @@ namespace MySort {
                     return;
             }
         }
-        return;
     };
 
     /*
@@ -107,7 +109,7 @@ namespace MySort {
         T *tag;
         if (!TAG) {
             for (auto t = (end_ - begin_) / 2; t > 0; t /= 2)
-                for (auto i =begin_+t;i<end_;i+=t){
+                for (auto i = begin_ + t; i < end_; i += t) {
                     tag = i;
                     while (tag > begin_ && *tag < *(tag - t)) {
                         swap(*tag, *(tag - t));
@@ -116,7 +118,7 @@ namespace MySort {
                 }
         } else if (TAG) {
             for (auto t = (end_ - begin_) / 2; t > 0; t /= 2)
-                for (auto i =begin_+t;i<end_;i+=t){
+                for (auto i = begin_ + t; i < end_; i += t) {
                     tag = i;
                     while (tag > begin_ && *tag > *(tag - t)) {
                         swap(*tag, *(tag - t));
@@ -125,6 +127,7 @@ namespace MySort {
                 }
         }
     };
+
     /*
      * 归并排序
      */
