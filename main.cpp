@@ -7,7 +7,7 @@ using namespace MySort;
 
 int main() {
 
-    Sort s = ShellSort;
+    Sort s = MySort::ShellSort;
     for (int i = 0; i < 10; ++i)SortTest(s);
 
 

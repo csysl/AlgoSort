@@ -33,17 +33,17 @@ namespace MySort {
         if (!TAG) {
             for (auto it = begin_; it < end_ - 1; ++it)
                 if (*it > *(it + 1)) {
-                    std::cout << "result is wrong!\n";
+                    std::cout << "Result is wrong!\n";
                     return;
                 }
         } else if (TAG) {
             for (auto it = begin_; it < end_ - 1; ++it)
                 if (*it < *(it + 1)) {
-                    std::cout << "result is wrong!\n";
+                    std::cout << "Result is wrong!\n";
                     return;
                 }
         }
-        std::cout << "result is right!\n";
+        std::cout << "Result is right!\n";
     }
 
     /*
@@ -55,7 +55,7 @@ namespace MySort {
         std::uniform_int_distribution<uint64_t> u1(10000, 100000);
         std::uniform_real_distribution<double> u2(1, 1000);
         uint64_t len = u1(e);
-        std::cout << "the length of array: " << len << std::endl;
+        std::cout << "The length of array: " << len << std::endl;
         double *arr = new double[len];
         for (auto i = 0; i < len; ++i)
             arr[i] = u2(e);
@@ -63,9 +63,10 @@ namespace MySort {
         s(arr, arr + len, TAG);
         auto end = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start); //毫秒输出
-        std::cout << std::setprecision(11) << duration.count() << "ms\n";
+        std::cout <<"The run time: "<< std::setprecision(11) << duration.count() << "ms\n";
         ResultCheck(arr, arr + len, TAG);
         delete[] arr;
+        std::cout<<"*****************\n";
     }
 
     /*
