@@ -11,7 +11,15 @@ random
 -
 
 /home/sun/code/AlgoSort/Sort.h
-bits/stdc++.h
+utility
+-
+random
+-
+chrono
+-
+iomanip
+-
+iostream
 -
 
 /home/sun/code/AlgoSort/main.cpp

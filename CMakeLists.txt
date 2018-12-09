@@ -4,3 +4,5 @@ project(AlgoSort)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(AlgoSort main.cpp Sort.h Rand.h)
+
+add_definitions(-fno-elide-constructors)
