@@ -52,7 +52,7 @@ namespace MySort {
     void SortTest(Sort s, bool TAG = false) {
         std::random_device r;
         std::default_random_engine e(r());
-        std::uniform_int_distribution<uint64_t> u1(10000, 100000);
+        std::uniform_int_distribution<uint64_t> u1(100001, 100001);
         std::uniform_real_distribution<double> u2(1, 1000);
         uint64_t len = u1(e);
         std::cout << "The length of array: " << len << std::endl;
