@@ -84,9 +84,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/sun/code/AlgoSort/Rand.h">
-			<Option target="AlgoSort"/>
-		</Unit>
 		<Unit filename="/home/sun/code/AlgoSort/Sort.h">
 			<Option target="AlgoSort"/>
 		</Unit>
