@@ -11,7 +11,7 @@
 #include <iomanip>
 #include <iostream>
 
-typedef void (*Sort)(double*,double*,bool);
+typedef void (*Sort)(double *, double *, bool);
 
 namespace MySort {
     /*
@@ -24,22 +24,50 @@ namespace MySort {
         a = std::move(b);
         b = std::move(tmp);
     }
-    void SortTest(Sort s){
+
+    /*
+     * 对排序结果进行测试,
+     */
+    template<typename T>
+    void ResultCheck(T *begin_, T *end_, bool TAG = false) {
+        if (!TAG) {
+            for (auto it = begin_; it < end_ - 1; ++it)
+                if (*it > *(it + 1)) {
+                    std::cout << "result is wrong!\n";
+                    return;
+                }
+        } else if (TAG) {
+            for (auto it = begin_; it < end_ - 1; ++it)
+                if (*it < *(it + 1)) {
+                    std::cout << "result is wrong!\n";
+                    return;
+                }
+        }
+        std::cout << "result is right!\n";
+    }
+
+    /*
+     * 对排序进行测试，输出排序所用时间，并对排序结果进行检测
+     */
+    void SortTest(Sort s, bool TAG = false) {
         std::random_device r;
         std::default_random_engine e(r());
-        std::uniform_int_distribution<uint64_t > u1(1000000,10000000);
-        std::uniform_real_distribution<double> u2(1,1000);
-        uint64_t len=u1(e);
-        double *arr=new double[len];
-        for(auto i=0;i<len;++i)
-            arr[i]=u2(e);
+        std::uniform_int_distribution<uint64_t> u1(10000, 100000);
+        std::uniform_real_distribution<double> u2(1, 1000);
+        uint64_t len = u1(e);
+        std::cout << "the length of array: " << len << std::endl;
+        double *arr = new double[len];
+        for (auto i = 0; i < len; ++i)
+            arr[i] = u2(e);
         auto start = std::chrono::high_resolution_clock::now();
-        s(arr,arr+len,false);
+        s(arr, arr + len, TAG);
         auto end = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start); //毫秒输出
         std::cout << std::setprecision(11) << duration.count() << "ms\n";
+        ResultCheck(arr, arr + len, TAG);
         delete[] arr;
     }
+
     /*
      * 冒泡排序
      */
@@ -153,7 +181,8 @@ namespace MySort {
      */
     template<typename T>
     void Merge(T *begin_, T *middle_, T *end_, bool TAG = false) {
-        T *tmp = new T[end_ - begin_];
+        T *tmp = nullptr;
+        if (end_ - begin_ > 0)tmp = new T[end_ - begin_];   //为了实现非递归的归并排序，否则可以直接写成T *tmp=new T[end_ - begin_];
         if (!TAG) {
             auto it1 = begin_, it2 = middle_;  //it1,it2销毁了原先的内存，但是函数末尾move函数产生了新内存
             for (uint64_t ind = 0; ind < (end_ - begin_); ++ind) {
@@ -168,7 +197,7 @@ namespace MySort {
                 if (*it1 < *it2) {
                     tmp[ind] = *it1;
                     ++it1;
-                } else {
+                } else if (*it1 >= *it2) {
                     tmp[ind] = *it2;
                     ++it2;
                 }
@@ -188,7 +217,7 @@ namespace MySort {
                 if (*it1 > *it2) {
                     tmp[ind] = *it1;
                     ++it1;
-                } else {
+                } else if (*it1 <= *it2) {
                     tmp[ind] = *it2;
                     ++it2;
                 }
@@ -225,23 +254,131 @@ namespace MySort {
     inline void MergeSort2(T *begin_, T *end_, bool TAG = false) {
         T *item_ = nullptr;
         if (!TAG) {
-            for (uint64_t i = 2; i <= (end_ - begin_); i <<= 1) {
+            for (uint64_t i = 2; (i >> 1) <= (end_ - begin_); i <<= 1) {
                 for (item_ = begin_; item_ < end_; item_ += i) {
+                    if (item_ + i > end_) {//长度不够的额外处理
+                        uint64_t tag = i;
+                        while (tag > end_ - item_)tag >>= 1;
+                        Merge(item_, item_ + tag, end_);
+                        continue;
+                    }
                     Merge(item_, item_ + (i >> 1), item_ + i);
                 }
             }
         } else if (TAG) {
-
+            for (uint64_t i = 2; (i >> 1) <= (end_ - begin_); i <<= 1) {
+                for (item_ = begin_; item_ < end_; item_ += i) {
+                    if (item_ + i > end_) {//长度不够的额外处理
+                        uint64_t tag = i;
+                        while (tag > end_ - item_)tag >>= 1;
+                        Merge(item_, item_ + tag, end_, true);
+                        continue;
+                    }
+                    Merge(item_, item_ + (i >> 1), item_ + i, true);
+                }
+            }
         }
         item_ = nullptr;
     };
-
 
     /*
      * 快速排序
      */
     template<typename T>
     inline void QuickSort(T *begin_, T *end_, bool TAG = false) {
+        if (!TAG) {
+
+        } else if (TAG) {
+
+        }
+    };
+
+    //堆排序调整函数
+    template<typename T>
+    void AdjustHeap(T *begin_, T *end_, int64_t father, bool TAG = false) {
+        /*
+         * now_:当前节点的指针
+         */
+        int64_t len = end_ - begin_;
+        if (!TAG) {
+            for (auto child = (father << 1) + 1; child < len; child = (child << 1) + 1) {
+                //找到两个子节点最大的哪一个
+                if ((child + 1 < len) && (begin_[child] < begin_[child + 1]))
+                    ++child;
+                if (begin_[child] > begin_[father]) {
+                    swap(begin_[child], begin_[father]);
+                    father = child;
+                } else
+                    break;
+            }
+
+        } else if (TAG) {
+            for (auto child = (father << 1) + 1; child < len; child = (child << 1) + 1) {
+                if ((child + 1 < len) && (begin_[child] > begin_[child + 1]))
+                    ++child;
+                if (begin_[child] < begin_[father]) {
+                    swap(begin_[child], begin_[father]);
+                    father = child;
+                } else
+                    break;
+            }
+        }
+    };
+
+    /*
+     *堆排序
+     */
+    template<typename T>
+    inline void HeapSort(T *begin_, T *end_, bool TAG = false) {
+        int64_t len = end_ - begin_;
+        if (!TAG) {
+            for (int64_t i = (len >> 1) - 1; i >= 0; --i) {  //从第一个有叶子节点的节点开始调整堆
+                AdjustHeap(begin_, end_, i); //初始化最大堆
+            }
+            while (len--) {
+                swap(begin_[0], begin_[len]);
+                AdjustHeap(begin_, begin_ + len, 0);
+            }
+        } else if (TAG) {
+            for (int64_t i = (len >> 1) - 1; i >= 0; --i) {  //从第一个有叶子节点的节点开始调整堆
+                AdjustHeap(begin_, end_, i, true); //初始化最大堆
+            }
+            while (len--) {
+                swap(begin_[0], begin_[len]);
+                AdjustHeap(begin_, begin_ + len, 0, true);
+            }
+        }
+    };
+
+    /*
+     * 计数排序
+     */
+    template<typename T>
+    inline void CountingSort(T *begin_, T *end_, bool TAG = false) {
+        if (!TAG) {
+
+        } else if (TAG) {
+
+        }
+    };
+
+    /*
+     * 桶排序
+     */
+    template<typename T>
+    inline void BucketSort(T *begin_, T *end_, bool TAG = false) {
+        if (!TAG) {
+
+        } else if (TAG) {
+
+        }
+    };
+
+    /*
+     * 基数排序
+     */
+    template<typename T>
+    inline void RadixSort(T *begin_, T *end_, bool TAG = false) {
         if (!TAG) {
 
         } else if (TAG) {
