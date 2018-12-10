@@ -79,8 +79,8 @@ namespace MySort {
     void SortTestInt(SortInt s, bool TAG = false) {
         std::random_device r;
         std::default_random_engine e(r());
-        std::uniform_int_distribution<uint64_t> u1(100001, 100001);
-        std::uniform_int_distribution<uint64_t> u2(100000, 10000000);
+        std::uniform_int_distribution<uint64_t> u1(1000001, 1000001);
+        std::uniform_int_distribution<uint64_t> u2(1000000, 10000000);
         uint64_t len = u1(e);
         std::cout << "The length of array: " << len << std::endl;
         uint64_t *arr = new uint64_t[len];
@@ -388,21 +388,17 @@ namespace MySort {
                 max_ = max_ > (*it) ? max_ : (*it);
                 min_ = min_ < (*it) ? min_ : (*it);
             }
-            //std::cout<<min_<<" "<<max_<<"\n";
             len_ = max_ - min_ + 1;
             T *countArray = new T[len_];
             std::memset(countArray, 0, sizeof(T) * len_); //新建计数数组并全部置为0
-            //for (uint64_t i = 0; i < len_; ++i)std::cout << countArray[i] << " ";std::cout << "\n";
             for (auto it = begin_; it < end_; ++it)   //计数数组记录元素的个数，元素的值-min_=下标
                 ++countArray[(*it) - min_];
-            //for(uint64_t i=0;i<len_;++i)std::cout<<countArray[i]<<" ";std::cout<<"\n";
             for (uint64_t i = 0; i < len_ - 1; ++i)
                 countArray[i + 1] += countArray[i];   //计数数组保存小于等于当前值的总数，目的是为了处理相同值，保持算法稳定
-            //for(uint64_t i=0;i<len_;++i)std::cout<<countArray[i]<<" ";std::cout<<"\n";
             --end_;
             for (uint64_t ind_ = len_ - 1; ind_ >= 0;) {
                 if (ind_ == 0) {
-                    if (countArray[ind_] > 0) {
+                    if (countArray[ind_] > 0) {  //倒序循环到第一个元素时特殊处理
                         *end_ = ind_ + min_;
                         --countArray[ind_];
                         --end_;
@@ -415,12 +411,39 @@ namespace MySort {
                     --end_;
                     continue;
                 }
-                //std::cout<<ind_<<std::endl;
                 --ind_;
             }
             delete[]countArray;
         } else if (TAG) {
-
+            for (auto it = begin_; it < end_; ++it) {  //找到最大最小值
+                max_ = max_ > (*it) ? max_ : (*it);
+                min_ = min_ < (*it) ? min_ : (*it);
+            }
+            len_ = max_ - min_ + 1;
+            T *countArray = new T[len_];
+            std::memset(countArray, 0, sizeof(T) * len_); //新建计数数组并全部置为0
+            for (auto it = begin_; it < end_; ++it)   //计数数组记录元素的个数，元素的值-min_=下标
+                ++countArray[(*it) - min_];
+            for (uint64_t i = 0; i < len_ - 1; ++i)
+                countArray[i + 1] += countArray[i];   //计数数组保存小于等于当前值的总数，目的是为了处理相同值，保持算法稳定
+            for (uint64_t ind_ = len_ - 1; ind_ >= 0;) {
+                if (ind_ == 0) {
+                    if (countArray[ind_] > 0) {  //倒序循环到第一个元素时特殊处理
+                        *begin_ = ind_ + min_;
+                        --countArray[ind_];
+                        ++begin_;
+                        continue;
+                    }
+                    break;
+                } else if (countArray[ind_] - countArray[ind_ - 1] > 0) {
+                    *begin_ = ind_ + min_;
+                    --countArray[ind_];
+                    ++begin_;
+                    continue;
+                }
+                --ind_;
+            }
+            delete[]countArray;
         }
     };
 
