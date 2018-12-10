@@ -15,7 +15,21 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sort.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sort.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/AlgoSort" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AlgoSort" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/AlgoSort.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AlgoSort.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlgoSort.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -28,49 +42,23 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sort.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="54" column="65" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
+            <state relative-caret-position="512">
+              <caret line="423" column="6" lean-forward="true" selection-start-line="379" selection-start-column="4" selection-end-line="423" selection-end-column="6" />
               <folding>
-                <element signature="e#90#108#0" expanded="true" />
-                <element signature="e#386#398#0" expanded="true" />
-                <element signature="e#325#515#0" />
-                <element signature="e#562#574#0" expanded="true" />
-                <element signature="e#453#1066#0" />
-                <element signature="e#2197#2209#0" expanded="true" />
-                <element signature="e#2020#2956#1" />
-                <element signature="e#3167#3179#0" expanded="true" />
-                <element signature="e#2990#3650#1" />
-                <element signature="e#3860#3872#0" expanded="true" />
-                <element signature="e#3683#4337#1" />
-                <element signature="e#4548#4560#0" expanded="true" />
-                <element signature="e#4371#5211#1" />
-                <element signature="e#5422#5434#0" expanded="true" />
-                <element signature="e#5245#6893#1" />
-                <element signature="e#7087#7099#0" expanded="true" />
-                <element signature="e#6910#7622#1" />
-                <element signature="e#7818#7830#0" expanded="true" />
-                <element signature="e#7641#8863#1" />
-                <element signature="e#9074#9086#0" expanded="true" />
-                <element signature="e#9245#9257#0" expanded="true" />
-                <element signature="e#9068#10159#1" />
-                <element signature="e#10367#10379#0" expanded="true" />
-                <element signature="e#10190#10966#1" />
-                <element signature="e#11177#11189#0" expanded="true" />
-                <element signature="e#11363#11375#0" expanded="true" />
-                <element signature="e#11548#11560#0" expanded="true" />
+                <element signature="e#90#116#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+            <state relative-caret-position="122">
+              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -88,6 +76,9 @@
       <find>i</find>
       <find>lab</find>
       <find>it</find>
+      <find>move</find>
+      <find>uint32_t</find>
+      <find>cout</find>
     </findStrings>
     <replaceStrings>
       <replace>TAG</replace>
@@ -97,13 +88,13 @@
       <replace>it</replace>
       <replace>i</replace>
       <replace>child</replace>
+      <replace>copy</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Rand.h" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Sort.h" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/main.cpp" root0="SKIP_INSPECTION" />
   </component>
@@ -114,8 +105,8 @@
         <option value="$PROJECT_DIR$/Rand.h" />
         <option value="$PROJECT_DIR$/Sort.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/Sort.h" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -133,18 +124,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="AlgoSort" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AlgoSort" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -153,6 +134,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
@@ -179,8 +161,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Build All" />
       <item itemvalue="Application.AlgoSort" />
+      <item itemvalue="Application.Build All" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -204,31 +186,32 @@
       <workItem from="1543985673853" duration="7583000" />
       <workItem from="1544060661014" duration="2810000" />
       <workItem from="1544276965042" duration="5339000" />
-      <workItem from="1544323096261" duration="25763000" />
+      <workItem from="1544323096261" duration="25894000" />
+      <workItem from="1544431707267" duration="10914000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50699000" />
+    <option name="totallyTimeSpent" value="61744000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="35" width="1870" height="1045" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19205298" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15066226" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49944812" visible="true" weight="0.33182332" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3238958" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49944812" weight="0.33182332" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.46319366" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32842582" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3272933" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005519" side_tool="true" weight="0.33182332" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49834436" weight="0.32616082" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50165564" side_tool="true" weight="0.3261851" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3291714" />
       <window_info anchor="bottom" id="CMake" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -249,13 +232,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rand.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Rand.h" />
     <entry file="file:///usr/include/c++/8/bits/uniform_int_dist.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6117" />
@@ -312,52 +289,54 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sort.h">
+    <entry file="file:///usr/include/c++/8/debug/debug.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="54" column="65" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
-          <folding>
-            <element signature="e#90#108#0" expanded="true" />
-            <element signature="e#386#398#0" expanded="true" />
-            <element signature="e#325#515#0" />
-            <element signature="e#562#574#0" expanded="true" />
-            <element signature="e#453#1066#0" />
-            <element signature="e#2197#2209#0" expanded="true" />
-            <element signature="e#2020#2956#1" />
-            <element signature="e#3167#3179#0" expanded="true" />
-            <element signature="e#2990#3650#1" />
-            <element signature="e#3860#3872#0" expanded="true" />
-            <element signature="e#3683#4337#1" />
-            <element signature="e#4548#4560#0" expanded="true" />
-            <element signature="e#4371#5211#1" />
-            <element signature="e#5422#5434#0" expanded="true" />
-            <element signature="e#5245#6893#1" />
-            <element signature="e#7087#7099#0" expanded="true" />
-            <element signature="e#6910#7622#1" />
-            <element signature="e#7818#7830#0" expanded="true" />
-            <element signature="e#7641#8863#1" />
-            <element signature="e#9074#9086#0" expanded="true" />
-            <element signature="e#9245#9257#0" expanded="true" />
-            <element signature="e#9068#10159#1" />
-            <element signature="e#10367#10379#0" expanded="true" />
-            <element signature="e#10190#10966#1" />
-            <element signature="e#11177#11189#0" expanded="true" />
-            <element signature="e#11363#11375#0" expanded="true" />
-            <element signature="e#11548#11560#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="183">
+          <caret line="63" column="25" lean-forward="true" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8/bits/stl_algobase.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-87">
+          <caret line="487" column="60" lean-forward="true" selection-start-line="487" selection-start-column="60" selection-end-line="487" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/x86_64-linux-gnu/bits/types.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-756">
+          <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/x86_64-linux-gnu/bits/stdint-uintn.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        <state relative-caret-position="122">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sort.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="423" column="6" lean-forward="true" selection-start-line="379" selection-start-column="4" selection-end-line="423" selection-end-column="6" />
+          <folding>
+            <element signature="e#90#116#0" expanded="true" />
           </folding>
         </state>
       </provider>

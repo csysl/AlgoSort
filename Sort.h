@@ -5,13 +5,17 @@
 #ifndef ALGOSORT_SORT_H
 #define ALGOSORT_SORT_H
 
-#include <utility>
-#include <random>
-#include <chrono>
-#include <iomanip>
-#include <iostream>
+#include <utility>  //move
+#include <random>   //random_device;default_random_engine;uniform_int_distribution
+#include <chrono>   //time
+#include <iomanip>  //setprecision
+#include <iostream> //cout;endl;
+#include <cstring>  //memset
+#include <limits>   //
 
-typedef void (*Sort)(double *, double *, bool);
+typedef void (*SortReal)(double *, double *, bool);
+
+typedef void (*SortInt)(uint64_t *, uint64_t *, bool);
 
 namespace MySort {
     /*
@@ -47,12 +51,12 @@ namespace MySort {
     }
 
     /*
-     * 对排序进行测试，输出排序所用时间，并对排序结果进行检测
+     * 对排序进行测试，输出排序所用时间，并对排序结果进行检测,测试序列为浮点数
      */
-    void SortTest(Sort s, bool TAG = false) {
+    void SortTestReal(SortReal s, bool TAG = false) {
         std::random_device r;
         std::default_random_engine e(r());
-        std::uniform_int_distribution<uint64_t> u1(100001, 100001);
+        std::uniform_int_distribution<uint64_t> u1(10001, 10001);
         std::uniform_real_distribution<double> u2(1, 1000);
         uint64_t len = u1(e);
         std::cout << "The length of array: " << len << std::endl;
@@ -63,10 +67,33 @@ namespace MySort {
         s(arr, arr + len, TAG);
         auto end = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start); //毫秒输出
-        std::cout <<"The run time: "<< std::setprecision(11) << duration.count() << "ms\n";
+        std::cout << "The run time: " << std::setprecision(11) << duration.count() << "ms\n";
         ResultCheck(arr, arr + len, TAG);
         delete[] arr;
-        std::cout<<"*****************\n";
+        std::cout << "*****************\n";
+    }
+
+    /*
+     * 对排序进行测试，输出排序所用时间，并对排序结果进行检测,测试序列为正整数
+     */
+    void SortTestInt(SortInt s, bool TAG = false) {
+        std::random_device r;
+        std::default_random_engine e(r());
+        std::uniform_int_distribution<uint64_t> u1(100001, 100001);
+        std::uniform_int_distribution<uint64_t> u2(100000, 10000000);
+        uint64_t len = u1(e);
+        std::cout << "The length of array: " << len << std::endl;
+        uint64_t *arr = new uint64_t[len];
+        for (auto i = 0; i < len; ++i)
+            arr[i] = u2(e);
+        auto start = std::chrono::high_resolution_clock::now();
+        s(arr, arr + len, TAG);
+        auto end = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start); //毫秒输出
+        std::cout << "The run time: " << std::setprecision(11) << duration.count() << "ms\n";
+        ResultCheck(arr, arr + len, TAG);
+        delete[] arr;
+        std::cout << "*****************\n";
     }
 
     /*
@@ -188,11 +215,11 @@ namespace MySort {
             auto it1 = begin_, it2 = middle_;  //it1,it2销毁了原先的内存，但是函数末尾move函数产生了新内存
             for (uint64_t ind = 0; ind < (end_ - begin_); ++ind) {
                 if (it1 == middle_) {
-                    std::move(it2, end_, tmp + ind);
+                    std::copy(it2, end_, tmp + ind);
                     break;
                 }
                 if (it2 == end_) {
-                    std::move(it1, middle_, tmp + ind);
+                    std::copy(it1, middle_, tmp + ind);
                     break;
                 }
                 if (*it1 < *it2) {
@@ -208,11 +235,11 @@ namespace MySort {
             auto it1 = begin_, it2 = middle_;
             for (uint64_t ind = 0; ind < (end_ - begin_); ++ind) {
                 if (it1 == middle_) {
-                    std::move(it2, end_, tmp + ind);
+                    std::copy(it2, end_, tmp + ind);
                     break;
                 }
                 if (it2 == end_) {
-                    std::move(it1, middle_, tmp + ind);
+                    std::copy(it1, middle_, tmp + ind);
                     break;
                 }
                 if (*it1 > *it2) {
@@ -224,7 +251,7 @@ namespace MySort {
                 }
             }
         }
-        std::move(tmp, tmp + (end_ - begin_), begin_);
+        std::copy(tmp, tmp + (end_ - begin_), begin_);
         delete[]tmp;
     }
 
@@ -247,7 +274,6 @@ namespace MySort {
                 Merge(begin_, middle_, end_, true);
             }
         }
-        middle_ = nullptr;
     };
 
     //非递归实现
@@ -279,7 +305,6 @@ namespace MySort {
                 }
             }
         }
-        item_ = nullptr;
     };
 
     /*
@@ -356,8 +381,44 @@ namespace MySort {
      */
     template<typename T>
     inline void CountingSort(T *begin_, T *end_, bool TAG = false) {
+        T max_ = 0, min_ = UINT64_MAX;
+        uint64_t len_;
         if (!TAG) {
-
+            for (auto it = begin_; it < end_; ++it) {  //找到最大最小值
+                max_ = max_ > (*it) ? max_ : (*it);
+                min_ = min_ < (*it) ? min_ : (*it);
+            }
+            //std::cout<<min_<<" "<<max_<<"\n";
+            len_ = max_ - min_ + 1;
+            T *countArray = new T[len_];
+            std::memset(countArray, 0, sizeof(T) * len_); //新建计数数组并全部置为0
+            //for (uint64_t i = 0; i < len_; ++i)std::cout << countArray[i] << " ";std::cout << "\n";
+            for (auto it = begin_; it < end_; ++it)   //计数数组记录元素的个数，元素的值-min_=下标
+                ++countArray[(*it) - min_];
+            //for(uint64_t i=0;i<len_;++i)std::cout<<countArray[i]<<" ";std::cout<<"\n";
+            for (uint64_t i = 0; i < len_ - 1; ++i)
+                countArray[i + 1] += countArray[i];   //计数数组保存小于等于当前值的总数，目的是为了处理相同值，保持算法稳定
+            //for(uint64_t i=0;i<len_;++i)std::cout<<countArray[i]<<" ";std::cout<<"\n";
+            --end_;
+            for (uint64_t ind_ = len_ - 1; ind_ >= 0;) {
+                if (ind_ == 0) {
+                    if (countArray[ind_] > 0) {
+                        *end_ = ind_ + min_;
+                        --countArray[ind_];
+                        --end_;
+                        continue;
+                    }
+                    break;
+                } else if (countArray[ind_] - countArray[ind_ - 1] > 0) {
+                    *end_ = ind_ + min_;
+                    --countArray[ind_];
+                    --end_;
+                    continue;
+                }
+                //std::cout<<ind_<<std::endl;
+                --ind_;
+            }
+            delete[]countArray;
         } else if (TAG) {
 
         }

@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/sun/code/AlgoSort/Rand.h
-random
--
-
 /home/sun/code/AlgoSort/Sort.h
 utility
 -
@@ -21,12 +17,14 @@ iomanip
 -
 iostream
 -
+cstring
+-
+limits
+-
 
 /home/sun/code/AlgoSort/main.cpp
 Sort.h
 /home/sun/code/AlgoSort/Sort.h
-Rand.h
-/home/sun/code/AlgoSort/Rand.h
 iostream
 -
 
