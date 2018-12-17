@@ -29,6 +29,14 @@ namespace MySort {
         b = std::move(tmp);
     }
 
+    //获取a,b之间的一个随机数整数
+    uint64_t GetRand(uint64_t a, uint64_t b) {
+        std::random_device r;
+        std::default_random_engine e(r());
+        std::uniform_int_distribution<uint64_t> u(a, b);
+        return u(e);
+    }
+
     /*
      * 对排序结果进行测试,
      */
@@ -56,8 +64,8 @@ namespace MySort {
     void SortTestReal(SortReal s, bool TAG = false) {
         std::random_device r;
         std::default_random_engine e(r());
-        std::uniform_int_distribution<uint64_t> u1(10001, 10001);
-        std::uniform_real_distribution<double> u2(1, 1000);
+        std::uniform_int_distribution<uint64_t> u1(1000001, 1000001);
+        std::uniform_real_distribution<double> u2(1000, 100000);
         uint64_t len = u1(e);
         std::cout << "The length of array: " << len << std::endl;
         double *arr = new double[len];
@@ -79,7 +87,7 @@ namespace MySort {
     void SortTestInt(SortInt s, bool TAG = false) {
         std::random_device r;
         std::default_random_engine e(r());
-        std::uniform_int_distribution<uint64_t> u1(1000001, 1000001);
+        std::uniform_int_distribution<uint64_t> u1(100001, 10000001);
         std::uniform_int_distribution<uint64_t> u2(1000000, 10000000);
         uint64_t len = u1(e);
         std::cout << "The length of array: " << len << std::endl;
@@ -313,9 +321,57 @@ namespace MySort {
     template<typename T>
     inline void QuickSort(T *begin_, T *end_, bool TAG = false) {
         if (!TAG) {
-
+            if (end_ > begin_) {
+                auto middle_ = GetRand(0, end_ - begin_ - 1);
+                T *p = begin_ + middle_, *right_ = end_ - 1, *left_ = begin_;  //标记基准值位置指针和左右指针
+                T key_ = *p;
+                while (left_ < right_) {
+                    while (right_ > p) {
+                        if (*right_ < key_) {
+                            swap(*right_, *p);
+                            p = right_;
+                            break;
+                        }
+                        --right_;
+                    }
+                    while (left_ < p) {
+                        if (*left_ > key_) {
+                            swap(*left_, *p);
+                            p = left_;
+                            break;
+                        }
+                        ++left_;
+                    }
+                }
+                QuickSort(begin_, p);
+                QuickSort(p + 1, end_);
+            }
         } else if (TAG) {
-
+            if (end_ > begin_) {
+                auto middle_ = GetRand(0, end_ - begin_ - 1);
+                T *p = begin_ + middle_, *right_ = end_ - 1, *left_ = begin_;  //标记基准值位置指针和左右指针
+                T key_ = *p;
+                while (left_ < right_) {
+                    while (right_ > p) {
+                        if (*right_ > key_) {
+                            swap(*right_, *p);
+                            p = right_;
+                            break;
+                        }
+                        --right_;
+                    }
+                    while (left_ < p) {
+                        if (*left_ < key_) {
+                            swap(*left_, *p);
+                            p = left_;
+                            break;
+                        }
+                        ++left_;
+                    }
+                }
+                QuickSort(begin_, p, true);
+                QuickSort(p + 1, end_, true);
+            }
         }
     };
 
