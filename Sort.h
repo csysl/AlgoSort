@@ -79,7 +79,7 @@ namespace MySort {
         ResultCheck(arr, arr + len, TAG);
         delete[] arr;
         std::cout << "*****************\n";
-    }
+    };
 
     /*
      * 对排序进行测试，输出排序所用时间，并对排序结果进行检测,测试序列为正整数
@@ -87,7 +87,7 @@ namespace MySort {
     void SortTestInt(SortInt s, bool TAG = false) {
         std::random_device r;
         std::default_random_engine e(r());
-        std::uniform_int_distribution<uint64_t> u1(100001, 10000001);
+        std::uniform_int_distribution<uint64_t> u1(100001, 100001);
         std::uniform_int_distribution<uint64_t> u2(1000000, 10000000);
         uint64_t len = u1(e);
         std::cout << "The length of array: " << len << std::endl;
@@ -516,15 +516,97 @@ namespace MySort {
     };
 
     /*
-     * 基数排序
+     * 基数排序,只实现正整数
+     * 需要一个临时数组，需要得到位数
+     * (1)遍历序列找出最大的数(为的是确定最大的数是几位数)；
+        (2)开辟一个与数组大小相同的临时数组tmp；
+        (3)用一个count数组统计原数组中某一位(从低位向高位统计)相同的数据出现的次数；
+        (4)用一个index数组计算原数组中某一位(从最低位向最高位计算)相同数据出现的位置；
+        (5)将桶中数据从小到大用tmp数组收集起来；
+        (6)重复(3)(4)(5)直到所有位都被统计并计算过，用tmp收集起来；
+        (7)将tmp数组拷回到原数组中；
      */
     template<typename T>
     inline void RadixSort(T *begin_, T *end_, bool TAG = false) {
+        //using namespace std;
+        int64_t len_ = end_ - begin_;
+        T *tmp_ = new T[len_]();  //临时数组
+        T max_ = 0;
+        for (int64_t i = 0; i < len_; ++i)max_ = max_ > begin_[i] ? max_ : begin_[i];  //找到最大值，为了确定有几位
+        int64_t digit_ = 1, radix_ = 1;
+        while (max_ /= 10)++digit_;//获取最大数字的位数
         if (!TAG) {
-
+            while (digit_--) { //所有位数桶排序
+                int count_[10] = {0};
+                //统计数组,记录每位0-9出现的个数
+                for (int64_t i = 0; i < len_; ++i) {
+                    int ind = begin_[i] / radix_ % 10;
+                    ++count_[ind];
+                }
+                //将将各个桶中的数字个数，转化成各个桶中最后一个数字的下标索引
+                for (int64_t i = 1; i < 10; ++i) {
+                    count_[i] = count_[i-1] + count_[i];
+                }
+                //将按当前位的排序结果存放到tmp数组中
+                for (int64_t i = len_-1; i >=0; --i) {
+                    int ind = begin_[i] / radix_ % 10;
+                    tmp_[--count_[ind]] = begin_[i];
+                }
+                /**
+                 * 或者可以使用正序，转化为各个桶中第一个数字的下标
+                //将将各个桶中的数字个数，转化成各个桶中第一个数字的下标索引
+                int index_[10]={0};
+                for (int64_t i = 1; i < 10; ++i) {
+                    index_[i] = count_[i-1] + index_[i - 1];
+                }
+                //将按当前位的排序结果存放到tmp数组中
+                for (int64_t i = 0; i < len_; ++i) {
+                    int ind = begin_[i] / radix_ % 10;
+                    tmp_[index_[ind]++] = begin_[i];
+                }
+                 */
+                //将按该位的排序结果复制给原数组
+                std::copy(tmp_, tmp_ + len_, begin_);
+                radix_ *= 10;
+            }
         } else if (TAG) {
-
+            while (digit_--) { //所有位数桶排序
+                int count_[10] = {0};
+                //统计数组,记录每位0-9出现的个数
+                for (int64_t i = 0; i < len_; ++i) {
+                    int ind = begin_[i] / radix_ % 10;
+                    ++count_[ind];
+                }
+                //cout<<"sss: ";for(auto i:count_)cout<<i<<" ";cout<<endl;
+                //将将各个桶中的数字个数，转化成各个桶中最后一个数字的下标索引
+                for (int64_t i = 9; i > 0; --i) {
+                    count_[i-1] = count_[i-1] + count_[i];
+                }
+                //cout<<"sss: ";for(auto i:count_)cout<<i<<" ";cout<<endl;
+                //将按当前位的排序结果存放到tmp数组中
+                for (int64_t i = len_-1; i >=0; --i) {
+                    int ind = begin_[i] / radix_ % 10;
+                    tmp_[--count_[ind]] = begin_[i];
+                }
+                /**
+                 * 或者可以使用正序，转化为各个桶中第一个数字的下标
+                //将将各个桶中的数字个数，转化成各个桶中第一个数字的下标索引
+                int index_[10]={0};
+                for (int64_t i = 9; i >0; --i) {
+                    index_[i-1] = count_[i] + index_[i];
+                }
+                //将按当前位的排序结果存放到tmp数组中
+                for (int64_t i = 0; i < len_; ++i) {
+                    int ind = begin_[i] / radix_ % 10;
+                    tmp_[index_[ind]++] = begin_[i];
+                }
+                 */
+                //将按该位的排序结果复制给原数组
+                std::copy(tmp_, tmp_ + len_, begin_);
+                radix_ *= 10;
+            }
         }
+        delete[]tmp_;
     };
 
 
